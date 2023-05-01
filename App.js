@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useFonts } from 'expo-font';
+import React from 'react';
+import { RootContextProvider } from './src/Context/RootContext';
+import MainScreen from './src/Screens/MainScreen';
 
-export default function App() {
+const App = () => {
+
+  const [fontloaded] = useFonts({
+    'WorkSans-Light' : require('./src/Assets/Fonts/WorkSans-Light.ttf'),
+    'WorkSans-Medium' : require('./src/Assets/Fonts/WorkSans-Medium.ttf'),
+    'WorkSans-Regular' : require('./src/Assets/Fonts/WorkSans-Regular.ttf'),
+    'WorkSans-SemiBold' : require('./src/Assets/Fonts/WorkSans-SemiBold.ttf'),
+  })
+
+  if(!fontloaded) return null;
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <RootContextProvider>
+        <MainScreen />
+    </RootContextProvider>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
