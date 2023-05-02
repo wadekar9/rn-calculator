@@ -1,7 +1,14 @@
 import { useFonts } from 'expo-font';
+import { Platform, UIManager } from 'react-native';
 import React from 'react';
 import { RootContextProvider } from './src/Context/RootContext';
 import MainScreen from './src/Screens/MainScreen';
+
+if (Platform.OS === 'android') {
+  if (UIManager.setLayoutAnimationEnabledExperimental) {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+  }
+}
 
 const App = () => {
 
