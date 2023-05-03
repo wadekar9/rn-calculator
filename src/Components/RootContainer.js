@@ -1,4 +1,5 @@
-import { StyleSheet, StatusBar, View, SafeAreaView } from 'react-native'
+import { StyleSheet, StatusBar as RootStatusBar, View, SafeAreaView } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import { Colors } from '../Config/Theme';
 import { RootContext } from '../Context/RootContext';
 import React, { useContext } from 'react'
@@ -11,13 +12,13 @@ const RootContainer = ({children}) => {
         <SafeAreaView
             style={{ flex: 1 }}
         >
-            {/* <StatusBar
-                style={'dark'}
+            <StatusBar
+                style={isDarkMode ? 'light' : 'dark'}
                 animated
                 backgroundColor={isDarkMode ? Colors.SECONDARY_BACKGROUND : Colors.PRIMARY_BACKGROUND}    
-                // translucent
-            /> */}
-            <View style={{ height : StatusBar.currentHeight }} />
+                translucent
+            />
+            <View style={{ height : RootStatusBar.currentHeight }} />
             <View
                 style={{
                     flex: 1,

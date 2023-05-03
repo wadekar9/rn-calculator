@@ -1,13 +1,12 @@
 import { StyleSheet, Text, View, SafeAreaView} from 'react-native';
-import { RootContext } from '../Context/RootContext';
 import CommonButton from '../Components/CommonButton';
 import ThemeModeButton from '../Components/ThemeModeButton';
+import ScreenContainer from '../Components/ScreenContainer';
 import RootContainer from '../Components/RootContainer';
-import React, { useContext, useState, useReducer } from 'react'
+import React, { useContext, useState, useReducer } from 'react';
+import { data } from '../Config/ButtonConfigData';
 
 const MainScreen = () => {
-
-  const { isDarkMode } = useContext(RootContext);
   
   return (
     <RootContainer>
@@ -15,11 +14,25 @@ const MainScreen = () => {
         <ThemeModeButton />
       </View>
       <View style={{flex : 0.93}}>
-        <View style={{flex : 0.25,backgroundColor:'green'}}>
-
+        <View style={{flex : 0.34}}>
+          <ScreenContainer />
         </View>
-        <View style={{flex : 0.75,backgroundColor:'red'}}>
-
+        <View style={{flex : 0.66,justifyContent:'space-evenly'}}>
+          {
+            data.map((element,index) => {
+              return(
+                <View key={index} style={styles.buttonContainer}>
+                  {
+                    element.buttons.map((item,i) => {
+                      return(
+                        <CommonButton data={item} key={i} />
+                      )
+                    })
+                  }
+                </View>
+              )
+            })
+          }
         </View>
       </View>
     </RootContainer>
@@ -28,4 +41,11 @@ const MainScreen = () => {
 
 export default MainScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  buttonContainer : {
+    flexDirection : 'row',
+    alignItems : 'center',
+    justifyContent : 'space-evenly',
+    // flex : 1
+  }
+})
