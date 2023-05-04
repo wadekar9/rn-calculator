@@ -2,10 +2,11 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import React, { memo, useContext } from 'react'
 import { moderateScale, Fonts, Colors } from '../Config/Theme';
 import { RootContext } from '../Context/RootContext';
+import { OnButtonPressed } from '../Config/CalculationFunctions';
 
 const CommonButton = ({ data }) => {
 
-  const { isDarkMode } = useContext(RootContext);
+  const { isDarkMode, dispatch } = useContext(RootContext);
   const { symbol, icon1, icon2, isIcon, bgColor1, bgColor2, isOperator } = data
 
   const DarkIcon = icon1;
@@ -13,7 +14,8 @@ const CommonButton = ({ data }) => {
 
   return (
     <TouchableOpacity
-      activeOpacity={0.8}
+      onPress={() => OnButtonPressed(data, dispatch)}
+      activeOpacity={0.7}
       accessibilityLabel={'commonButton'}
       accessibilityRole={'button'}
       style={[

@@ -1,19 +1,19 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { RootContext } from '../Context/RootContext';
 import { moderateScale, Fonts, Colors } from '../Config/Theme';
 
 const ScreenContainer = () => {
 
-  const { isDarkMode } = useContext(RootContext)
+  const { isDarkMode, globalState } = useContext(RootContext);
 
   return (
     <View style={styles.container}>
       <View style={styles.firstContainer}>
-      <Text style={[styles.amountString, { color : isDarkMode ? Colors.PRIMARY_BUTTON : Colors.DARK_BUTTON_MEDIUM }]}>6291 X 5</Text>
+        <Text style={[styles.amountString, { color: isDarkMode ? Colors.PRIMARY_BUTTON : Colors.DARK_BUTTON_MEDIUM }]}>{globalState?.upperString}</Text>
       </View>
       <View style={styles.secondContainer}>
-        <Text style={[styles.amountText, { color : isDarkMode ? Colors.WHITE : Colors.BLACK }]}>1258.2</Text>
+        <Text style={[styles.amountText, { color: isDarkMode ? Colors.WHITE : Colors.BLACK }]}>{globalState?.bottomString}</Text>
       </View>
     </View>
   )
@@ -25,26 +25,26 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-    paddingHorizontal : moderateScale(18)
+    paddingHorizontal: moderateScale(18)
   },
-  secondContainer : {
+  secondContainer: {
     flex: 1,
-    alignItems : 'flex-end',
-    justifyContent : 'flex-end'
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end'
   },
-  firstContainer : {
+  firstContainer: {
     flex: 1,
-    alignItems : 'flex-end',
-    justifyContent : 'flex-end'
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end'
   },
-  amountText : {
-    fontFamily : Fonts.LIGHT,
-    fontSize : moderateScale(90),
-    textAlign : 'right'
+  amountText: {
+    fontFamily: Fonts.LIGHT,
+    fontSize: moderateScale(90),
+    textAlign: 'right'
   },
-  amountString : {
-    fontFamily : Fonts.LIGHT,
-    fontSize : moderateScale(40),
-    textAlign : 'right'
+  amountString: {
+    fontFamily: Fonts.LIGHT,
+    fontSize: moderateScale(40),
+    textAlign: 'right'
   }
 })
