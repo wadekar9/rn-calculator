@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "calculator",
+    "name": "Calculator",
     "slug": "calculator",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/calculator.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/calculator.png",
@@ -19,12 +19,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/calculator.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.demowodero.calculator"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "86c49a8b-0bee-47c9-9062-eec6b90e21c2"
+      }
     }
   }
 }

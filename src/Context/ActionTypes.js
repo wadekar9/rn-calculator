@@ -6,6 +6,8 @@ const MODULE = 'MODULE';
 const UNKNOWN = 'UNKNOWN';
 const BACK = 'BACK';
 const CLEAR = 'CLEAR';
+const EQUAL = 'EQUAL';
+const CONCAT = 'CONCAT';
 
 export {
     ADD,
@@ -15,5 +17,7 @@ export {
     MODULE,
     UNKNOWN,
     BACK,
-    CLEAR
+    CLEAR,
+    EQUAL,
+    CONCAT
 }
